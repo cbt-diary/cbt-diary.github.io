@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cbt diary</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <style>
+    .tooltip {
+      color: gray;
+      font-size: 0.75rem;
+      font-weight: normal;
+    }
+  </style>
+</head>
+
+<body>
+  
+<nav class="navbar" role="navigation" aria-label="dropdown navigation">
+    <div class="navbar-item has-dropdown is-active">
+        <a class="navbar-item" href="https://cbt-diary.github.io/">
+            Cbt Diary
+        </a>
+        <a class="navbar-item" href="faq.html">
+            Help
+        </a>
+        <a class="navbar-item" href="questions.html">
+            Additional exercise
+        </a>
+        <a class="navbar-item" href="distortions.html">
+            About distortions (coming soon!)
+        </a>
+        <a class="navbar-item" href="analysis.html">
+            Cbt Diary analysis
+        </a>
+
+    </div>
+</nav>
+
+<section class="hero is-info">
+    <div class="hero-body">
+        <h1 class="title">
+            cbt diary
+        </h1>
+        <p class="subtitle">
+            analyse your thoughts, change your way of thinking and feel better
+        </p>
+    </div>
+</section>
+
+  <section class="section">
+    <div class="container">
+      <div>
+    <p class="title">About this exercise</p>
+    <p>
+        You can practice your appreciation or acceptence by writing things you are grateful for or things you resist. Being grateful
+        is about noticing good things in your life. Acceptence is about noticing when you resist something. You don't have
+        to do this every day, optimal amount would be once in a few days, depending on your needs.
+    </p>
+    <hr>
+    <form id="diary-form">
+
+        <div class="field">
+            <label class="label">Appreciation</label>
+            <p class="tooltip">What/Who do you apreciate the most in your life? Write at least 3 items.</p>
+            <div class="control">
+                <textarea class="textarea" id="appreciation" placeholder=""></textarea>
+            </div>
+        </div>
+
+
+        <div class="field">
+            <label class="label">Acceptance</label>
+            <p class="tooltip">What do you resist? Write at least 3 items (feelings, thoughts, people, emotions, places).</p>
+            <div class="control">
+                <textarea class="textarea" id="acceptance" placeholder=""></textarea>
+            </div>
+        </div>
+
+    </form>
+
+    <hr>
+
+    <button id="toml-button" class="button">Save</button>
+
+    <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
+    <script src="moment.js"></script>
+    <script src="cbt_diary_wasm.js"></script>
+</div>
+    </div>
+  </section>
+  
+</body>
+
+</html>

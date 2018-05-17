@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cbt diary</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <style>
+    .tooltip {
+      color: gray;
+      font-size: 0.75rem;
+      font-weight: normal;
+    }
+  </style>
+</head>
+
+<body>
+  
+<nav class="navbar" role="navigation" aria-label="dropdown navigation">
+    <div class="navbar-item has-dropdown is-active">
+        <a class="navbar-item" href="https://cbt-diary.github.io/">
+            Cbt Diary
+        </a>
+        <a class="navbar-item" href="faq.html">
+            Help
+        </a>
+        <a class="navbar-item" href="questions.html">
+            Additional exercise
+        </a>
+        <a class="navbar-item" href="distortions.html">
+            About distortions (coming soon!)
+        </a>
+        <a class="navbar-item" href="analysis.html">
+            Cbt Diary analysis
+        </a>
+
+    </div>
+</nav>
+
+<section class="hero is-info">
+    <div class="hero-body">
+        <h1 class="title">
+            cbt diary
+        </h1>
+        <p class="subtitle">
+            analyse your thoughts, change your way of thinking and feel better
+        </p>
+    </div>
+</section>
+
+  <section class="section">
+    <div class="container">
+      <div>
+    <form id="diary-form">
+        <div class="field">
+    <label class="label">Title</label>
+    <p class="tooltip">summarize the situation in few words!</p>
+    <div class="control">
+        <input class="input" type="text" id="title" placeholder="I got angry at my kid">
+    </div>
+</div>
+        <hr> <div class="field">
+  <label class="label">Discomfort level</label>
+  <p class="tooltip">how much discomfort do you feel?</p>
+  <div class="control">
+    <div class="select">
+      <select id="discomfort_before">
+        
+        <option>0</option>
+        
+        <option>1</option>
+        
+        <option>2</option>
+        
+        <option>3</option>
+        
+        <option>4</option>
+        
+        <option>5</option>
+        
+        <option>6</option>
+        
+        <option>7</option>
+        
+        <option>8</option>
+        
+        <option>9</option>
+        
+      </select>
+    </div>
+  </div>
+</div>
+        <hr> <div>
+    <label class="label">Emotions</label>
+        <p class="tooltip">how do you feel right now?</p>
+        <br> 
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="anxious"> anxious
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="scared"> scared
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="overwhelmed"> overwhelmed
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="angry"> angry
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="hopeless"> hopeless
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="guilty"> guilty
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="ashamed"> ashamed
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="disgusted"> disgusted
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="bored"> bored
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="annoyed"> annoyed
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="envy"> envy
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="sad"> sad
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="depressed"> depressed
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="empty"> empty
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="tired"> tired
+                </label>
+            </div>
+        </div>
+        
+</div>
+        <hr> <div class="field">
+    <label class="label">Situation</label>
+    <p class="tooltip">describe situation in details. dont write thoughts here! what exactly happened?</p>
+    <div class="control">
+        <textarea class="textarea" id="situation" placeholder="My daughter got a bad grade at exam and I was angry at her."></textarea>
+    </div>
+</div>
+        <hr> <div class="field">
+    <label class="label">Negative thoughts</label>
+    <p class="tooltip">what are your negative thoughts about this situation?</p>
+    <div class="control">
+        <textarea class="textarea" id="negative" placeholder="She is so lazy! She didn't prepare for exam and she will fail the class! She is so stupid!"></textarea>
+    </div>
+</div>
+        <hr> <div>
+    <label class="label">Distortions</label>
+    <p class="tooltip"></p>
+    <br> 
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="fortune_telling"> fortune telling</input>
+            </label>
+            <p class="tooltip">believing that you know the future</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="filtering_out_postives"> filtering out postives</input>
+            </label>
+            <p class="tooltip">forgetting about all the positive things that happened</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="black_and_white_thinking"> black and white thinking</input>
+            </label>
+            <p class="tooltip">being a perfectionist. it is success or failure. there is nothing in between</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="mind_reading"> mind reading</input>
+            </label>
+            <p class="tooltip">believing that we know what other people think</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="catastrophizing"> catastrophizing</input>
+            </label>
+            <p class="tooltip">creating a catastrophe from small thing</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="overgeneralization"> overgeneralization</input>
+            </label>
+            <p class="tooltip">using words 'always' or 'never', thinking of something as a rule</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="minimizing_positive"> minimizing positive</input>
+            </label>
+            <p class="tooltip">discarding good things as a abberation, luck etc</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="jumping_to_conclusions"> jumping to conclusions</input>
+            </label>
+            <p class="tooltip">drawing conclusions without enough knowledge</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="maximizing_negative"> maximizing negative</input>
+            </label>
+            <p class="tooltip">exaggerating negatives</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="personalization"> personalization</input>
+            </label>
+            <p class="tooltip">blaming oneself for everything</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="control_fallacies"> control fallacies</input>
+            </label>
+            <p class="tooltip">believing that we don't have control over anything or we control things we really cannot control</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="fallacy_of_fairness"> fallacy of fairness</input>
+            </label>
+            <p class="tooltip"> we believe that everything should be fair and only our definition of fairness is right</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="blaming"> blaming</input>
+            </label>
+            <p class="tooltip">blaming other people for our mistakes, emotions etc</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="shoulds"> shoulds</input>
+            </label>
+            <p class="tooltip">i should do this; i should do that; people should be like this. we get angry is something is not as it 'should be'</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="emotional_reasoning"> emotional reasoning</input>
+            </label>
+            <p class="tooltip">i feel this so it must be true; drawing conclusions using emotions</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="fallacy_of_change"> fallacy of change</input>
+            </label>
+            <p class="tooltip">we believe we need to change outside world to be happy</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="labeling"> labeling</input>
+            </label>
+            <p class="tooltip">giving labels for self or other people</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="always_being_right"> always being right</input>
+            </label>
+            <p class="tooltip">not being able to admit we may made a mistake</p>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+
+                <input type="checkbox" id="heavens_reward_fallacy"> heaven's reward fallacy</input>
+            </label>
+            <p class="tooltip">we believe that we should be rewarded for something we did and feel bad when we didnt</p>
+        </div>
+    </div>
+    
+</div>
+        <hr> <div class="field">
+    <label class="label">Challenge</label>
+    <p class="tooltip">challenge your thoughts. give positive examples and give counter-examples for your beliefs</p>
+    <div class="control">
+        <textarea class="textarea" id="challenge" placeholder="She has good grades usually, she is not doing great at math lately. She is a clever kid, but we all fail sometimes"></textarea>
+    </div>
+</div>
+        <hr> <div class="field">
+  <label class="label">Discomfort level</label>
+  <p class="tooltip">how much discomfort do you feel?</p>
+  <div class="control">
+    <div class="select">
+      <select id="discomfort_after">
+        
+        <option>0</option>
+        
+        <option>1</option>
+        
+        <option>2</option>
+        
+        <option>3</option>
+        
+        <option>4</option>
+        
+        <option>5</option>
+        
+        <option>6</option>
+        
+        <option>7</option>
+        
+        <option>8</option>
+        
+        <option>9</option>
+        
+      </select>
+    </div>
+  </div>
+</div>
+        <hr> <div class="field">
+    <label class="label">Outcome</label>
+    <p class="tooltip">how do you feel after challenging the thoughts? did you draw any conclusions or found solution to your problem?</p>
+    <div class="control">
+        <textarea class="textarea" id="outcome" placeholder="i will talk to her about it. she is already struggling, i should help her, not make her problem worse."></textarea>
+    </div>
+</div>
+    </form>
+
+    <hr>
+
+    <button id="toml-button" class="button">Save</button>
+
+    <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
+    <script src="moment.js"></script>
+    <script src="cbt_diary_wasm.js"></script>
+</div>
+    </div>
+  </section>
+  
+</body>
+
+</html>

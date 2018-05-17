@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cbt diary</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <style>
+    .tooltip {
+      color: gray;
+      font-size: 0.75rem;
+      font-weight: normal;
+    }
+  </style>
+</head>
+
+<body>
+  
+<nav class="navbar" role="navigation" aria-label="dropdown navigation">
+    <div class="navbar-item has-dropdown is-active">
+        <a class="navbar-item" href="https://cbt-diary.github.io/">
+            Cbt Diary
+        </a>
+        <a class="navbar-item" href="faq.html">
+            Help
+        </a>
+        <a class="navbar-item" href="questions.html">
+            Additional exercise
+        </a>
+        <a class="navbar-item" href="distortions.html">
+            About distortions (coming soon!)
+        </a>
+        <a class="navbar-item" href="analysis.html">
+            Cbt Diary analysis
+        </a>
+
+    </div>
+</nav>
+
+<section class="hero is-info">
+    <div class="hero-body">
+        <h1 class="title">
+            cbt diary
+        </h1>
+        <p class="subtitle">
+            analyse your thoughts, change your way of thinking and feel better
+        </p>
+    </div>
+</section>
+
+  <section class="section">
+    <div class="container">
+      <p class="title">
+    First, upload files</p>
+<div class="file">
+    <label class="file-label">
+        <input class="file-input" type="file" name="files" id="load-files-btn" multiple/>
+        <span class="file-cta">
+            <span class="file-label">
+                Choose a file…
+            </span>
+        </span>
+    </label>
+</div>
+<hr>
+
+<style>
+    .flexible-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .flexible-list-element {
+        height: 200px;
+        width: 120px;
+        padding: 10px;
+        margin: 20px;
+    }
+</style>
+
+<link rel="stylesheet" href="circle.css">
+<p class="title">Analysis result</p>
+<hr>
+<p class="subtitle">Distortions</p>
+<div id="distortions-count" class="flexible-list"></div>
+<hr>
+<p class="subtitle">Emotions</p>
+<div id="emotions-count" class="flexible-list"></div>
+<hr>
+
+
+<script src="wasm_data_analysis.js"></script>
+<script>
+    const readUploadedFileAsText = (inputFile) => {
+        const temporaryFileReader = new FileReader();
+
+        return new Promise((resolve, reject) => {
+            temporaryFileReader.onerror = () => {
+                temporaryFileReader.abort();
+                reject(new DOMException("Problem parsing input file."));
+            };
+
+            temporaryFileReader.onload = () => {
+                resolve(temporaryFileReader.result);
+            };
+            temporaryFileReader.readAsText(inputFile);
+        });
+    };
+    async function onFilesSelected(evt) {
+        var files = evt.target.files;
+
+        for (var i = 0, f; f = files[i]; i++) {
+
+
+            var reader = new FileReader();
+            console.log("created reader");
+            reader.onload = function (file) {
+                console.log("loaded file: " + file.name);
+                var content = file.target.result;
+                onFileLoaded(content);
+
+            };
+            reader.readAsText(f);
+
+        }
+
+    }
+    function onFileLoaded(content) {
+
+        Rust.wasm_data_analysis.then(function (analyser) {
+            analyser.on_toml_file_loaded(content);
+        });
+    }
+
+
+    // add btn listener
+    document.querySelector("#load-files-btn").addEventListener("change", onFilesSelected, false);
+
+</script>
+    </div>
+  </section>
+  
+</body>
+
+</html>
